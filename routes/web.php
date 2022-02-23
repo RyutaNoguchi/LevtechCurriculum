@@ -11,13 +11,21 @@
 |
 */
 
-Route::get('/posts/create', 'PostController@create');
-Route::get('/posts/{post}', 'PostController@show');
-Route::get('posts/{post}/edit', 'PostController@edit');
-Route::get('/posts', 'PostController@index');
+Route::group(['middleware' => ['auth']], function(){
+    Route::get('/posts/create', 'PostController@create');
+    Route::get('/posts/{post}', 'PostController@show');
+    Route::get('posts/{post}/edit', 'PostController@edit');
+    Route::get('/posts', 'PostController@index');
+    Route::get('/', 'PostController@index');
+    Route::get('/categories/{category}', 'CategoryController@index');
 
-Route::post('/posts', 'PostController@store');
+    Route::post('/posts', 'PostController@store');
 
-Route::put('/posts/{post}', 'PostController@update');
+    Route::put('/posts/{post}', 'PostController@update');
 
-Route::delete('/posts/{post}', 'PostController@delete');
+    Route::delete('/posts/{post}', 'PostController@delete');
+});
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
