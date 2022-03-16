@@ -54,7 +54,6 @@ class PostController extends Controller
     
     public function update(PostRequest $request, Post $post)
     {
-        dd($request);
         $input_post = $request['post'];
         $post->fill($input_post)->save();
         return redirect('/posts/'.$post->id);
