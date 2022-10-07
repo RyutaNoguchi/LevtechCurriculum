@@ -9,9 +9,11 @@
     "license": "MIT",
     "require": {
         "php": "^8.0",
+        "cloudinary-labs/cloudinary-laravel": "^2.0",
         "laravel/framework": "^9.0",
         "laravel/tinker": "^2.0",
-        "laravel/ui": "^3.0"
+        "laravel/ui": "^3.0",
+        "cloudinary-labs/cloudinary-laravel": "1.0.4"
     },
     "require-dev": {
         "spatie/laravel-ignition": "^1.0",

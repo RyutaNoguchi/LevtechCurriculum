@@ -2,7 +2,7 @@
 
 @section('content')
     <h1>Blog Name</h1>
-        <form action="/posts" method="POST">
+        <form action="/posts" method="POST" enctype="multipart/form-data">
             @csrf
             <div class="title">
                 <h2>Title</h2>
@@ -21,6 +21,7 @@
                     <option value="{{ $category->id }}">{{ $category->name }}</option>
                     @endforeach
                 </select>
+            <input type="file" name="image">
             </div>
             <input type="submit" value="保存"/>
         </form>
